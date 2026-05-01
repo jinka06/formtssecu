@@ -1,0 +1,38 @@
+{
+  "name": "formsecu",
+  "version": "1.0.0",
+  "description": "A TS form with application security best practices implemented.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "eslint . --ext .js,.ts --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "start": "tsc -p tsconfig.backend.json && node backend/dist/server.js",
+    "dev:frontend": "tsc -p tsconfig.json && npx http-server frontend -c-1 -p 8080 --cors",
+    "dev:backend": "tsc -p tsconfig.backend.json --watch && node --watch backend/dist/index.js",
+    "dev:all": "concurrently \"npm run start\" \"npm run dev:frontend\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.2.1",
+    "http-server": "^14.1.1",
+    "zod": "^4.4.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@tsconfig/node20": "^20.1.9",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "concurrently": "^9.2.1",
+    "eslint": "^10.3.0",
+    "globals": "^17.6.0",
+    "prettier": "3.8.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.1"
+  }
+}

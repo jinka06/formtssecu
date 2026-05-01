@@ -1,0 +1,11 @@
+node_modules
+dist
+dist-ssr
+*.local
+logs
+.env
+coverage
+drizzle
+*.log
+package-lock.json
+yarn.lock

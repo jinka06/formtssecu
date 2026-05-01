@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>User Registration</title>
+  </head>
+  <body>
+    <header class="form-header">
+      <h1 class="form-title">User Registration</h1>
+      <p class="form-description">
+        There are currently <span id="user-count">0</span> registered users.
+      </p>
+    </header>
+    <div class="form-container">
+      <form id="registration-form" class="registration-form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-input"
+            placeholder="John Doe"
+            name="name"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="form-input"
+            placeholder="john.doe@example.com"
+            name="email"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            class="form-input"
+            placeholder="johndoe123"
+            name="username"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            class="form-input"
+            placeholder="************"
+            name="password"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="age" class="form-label">Age</label>
+          <input
+            type="number"
+            id="age"
+            min="13"
+            max="120"
+            placeholder="25"
+            class="form-input"
+            name="age"
+            required />
+        </div>
+        <div class="form-group">
+          <label for="bio" class="form-label"
+            >Bio <span class="form-label__optional">(optional)</span></label
+          >
+          <textarea
+            id="bio"
+            name="bio"
+            rows="4"
+            class="form-input form-textarea"
+            placeholder="Tell us about yourself..."></textarea>
+        </div>
+        <button id="submit-button" type="submit">Register</button>
+      </form>
+    </div>
+
+    <script src="./dist/app.js" type="module"></script>
+  </body>
+</html>
