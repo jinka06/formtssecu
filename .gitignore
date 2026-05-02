@@ -7,5 +7,3 @@ logs
 coverage
 drizzle
 *.log
-package-lock.json
-yarn.lock
