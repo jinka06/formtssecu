@@ -51,7 +51,7 @@ async function handleFormSubmit(event: Event): Promise<void> {
   setLoading(true);
 
   try {
-    const response = await fetch(`${API_BASE_URL}/api/login`, {
+    const response = await fetch(`${API_BASE_URL}/api/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(requestData),

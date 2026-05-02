@@ -12,6 +12,6 @@
     "resolveJsonModule": true,
     "sourceMap": true
   },
-  "include": ["frontend/**/*"],
+  "include": ["frontend/**/*", "backend/types/express.d.ts"],
   "exclude": ["node_modules", "backend"]
 }

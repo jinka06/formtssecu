@@ -3,7 +3,7 @@ let mockUserCount = 11_456;
 export interface MockUser {
   name: string;
   email: string;
-  age: string;
+  age: string | number;
   username: string;
   bio?: string;
 }
