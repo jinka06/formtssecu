@@ -7,6 +7,7 @@ import {
 import { validate } from '../middleware/validate.js';
 import { registerSchema } from '../schemas/registerSchema.js';
 import type { RegisterRequest } from '../types/index.js';
+import { limiter } from '../server.js';
 
 const authRoutes = Router();
 
@@ -32,6 +33,7 @@ authRoutes.post('/login', (req: Request, res: Response) => {
 
 authRoutes.post(
   '/register',
+  limiter,
   validate(registerSchema),
   (req: Request, res: Response) => {
     const userData: RegisterRequest = req.validatedData!;
