@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import authRoutes from './routes/auth.js';
-import rateLimit from 'express-rate-limit';
+import { rateLimit, ipKeyGenerator } from 'express-rate-limit';
+import { slowDown } from 'express-slow-down';
 
 const app: Express = express();
 const PORT = process.env.PORT || 3000;
@@ -8,10 +9,18 @@ app.use(express.json());
 
 export const limiter = rateLimit({
   windowMs: 60 * 1000,
-  max: 5,
+  max: 20,
   standardHeaders: true,
   legacyHeaders: false,
   message: 'Too many requests from this IP, please try again later.',
+  keyGenerator: (req: Request) => ipKeyGenerator(req.ip ?? 'unknown'),
+});
+
+export const speedLimiter = slowDown({
+  windowMs: 60 * 1000,
+  delayAfter: 10,
+  delayMs: 500,
+  keyGenerator: (req: Request) => ipKeyGenerator(req.ip ?? 'unknown'),
 });
 
 app.use((req: Request, res: Response, next) => {
